@@ -1,0 +1,178 @@
+<html>
+	<head>
+    <meta charset="utf-8" />
+		<title>Artistas Cadastrados</title>
+
+		<!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/bootstrap/css/style.css" rel="stylesheet">
+  
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+	</head>
+
+  <body onload="carregaListaArtistas()">
+
+
+   <!-- Navigation -->
+   <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Muzik</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="index.html"></a>
+                </li>
+                <li class="page-scroll">
+                    <a href="index.html">Álbuns</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="index.html">Sobre</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="index.html">Artistas</a>
+                </li>
+                <li class="hidden">
+                  <a href="index.html"></a>
+               </li>
+                <li class="nav-item text-center dropdown">
+                    <a class="nav-link nav dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Cadastro</a>
+                    <ul class="dropdown-menu">
+                            <ul class="dropdown-item d-block">
+                                <a class="d-block"><a href="cadastro-artista.html">Artistas</a>
+                                <a class="d-block"><a href="cadastro-musica.html">Músicas</a>
+                                <a class="d-block"><a href="cadastro-album.html">Álbuns</a>
+                            </ul>
+                        </li>
+                    </ul>
+                    <li class="nav-item text-center dropdown">
+                        <a class="nav-link nav dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Consulta</a>
+                        <ul class="dropdown-menu">
+                                <ul class="dropdown-item d-block">
+                                    <a class="d-block"><a href="consulta-artista.html">Artistas</a>
+                                    <a class="d-block"><a href="consulta-musica.html">Músicas</a>
+                                    <a class="d-block"><a href="consulta-album.html">Álbuns</a>
+                                </ul>
+                            </li>
+                        </ul>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+  <section id="artista">
+    <div class="container">
+      <div class="row mb-5" style="padding-top: 90px">
+        <div class="col">
+          <h1 class="display-4">Buscar Artistas</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8" style="padding-top: 25px">
+          <input type="text" class="form-control" placeholder="Nome" id="nome" />
+        </div>
+
+        <div class="col-md-8" style="padding-top: 45px">
+          <input type="text" class="form-control" placeholder="Nacionalidade" id="nacionalidade" />
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-end" style="padding-top: 48px">
+          <button type="button" class="btn btn-primary" onclick="pesquisarArtista()">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+      <br><br><br>
+
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <tr>    
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Nacionalidade</th>
+                  <th scope="col">Ação</th>
+              </tr>
+          </thead>
+              <tbody>
+                  <tr>
+                          <th scope="row">1</th>
+                          <td>Marilia Mendonça</td>
+                          <td>Brasileira</td>
+                          <td>
+                              <a href="#" class="btn btn-danger">Remove</a>
+                              <a href="#" class="btn btn-success">Edit</a>
+                              <a href="#albumModal1" class="btn btn-primary" data-toggle="modal">View</a>
+                          </td>
+                        </tr>
+                      <tr>
+                          <th scope="row">2</th>
+                          <td>Avril Lavigne</td>
+                          <td>Canadense</td>
+                          <td>
+                              <a href="#" class="btn btn-danger">Remove</a>
+                              <a href="#" class="btn btn-success">Edit</a>
+                              <a href="#albumModal2" class="btn btn-primary" data-toggle="modal">View</a>
+                          </td>
+                        </tr>
+                      <tr>
+                          <th scope="row">3</th>
+                          <td>Anitta</td>
+                          <td>Brasileira</td>
+                          <td>
+                              <a href="#" class="btn btn-danger">Remove</a>
+                              <a href="#" class="btn btn-success">Edit</a>
+                              <a href="#albumModal3" class="btn btn-primary" data-toggle="modal">View</a>
+                          </td>
+                        </tr>
+                    </thead>
+
+            <tbody id="listaAlbuns">
+               
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- jQuery -->
+<script src="assets/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="assets/js/classie.js"></script>
+<script src="assets/js/cbpAnimatedHeader.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="assets/js/app.js"></script>
+
+  </body>	
+</html>
